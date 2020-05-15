@@ -1,0 +1,23 @@
+{
+  "name": "pokemon-alexa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carelynntsai/pokemon-alexa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carelynntsai/pokemon-alexa/issues"
+  },
+  "homepage": "https://github.com/carelynntsai/pokemon-alexa#readme",
+  "dependencies": {
+    "ask-sdk-express-adapter": "^2.1.0",
+    "express": "^4.17.1"
+  }
+}
