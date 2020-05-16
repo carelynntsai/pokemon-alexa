@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/carelynntsai/pokemon-alexa#readme",
   "dependencies": {
+    "ask-sdk": "^2.8.0",
     "ask-sdk-core": "^2.8.0",
     "ask-sdk-express-adapter": "^2.1.0",
+    "ask-sdk-model": "^1.28.0",
     "express": "^4.17.1"
   }
 }
