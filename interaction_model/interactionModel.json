@@ -1,0 +1,168 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "personal pokedex",
+            "modelConfiguration": {
+                "fallbackIntentSensitivity": {
+                    "level": "LOW"
+                }
+            },
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": [
+                        "yes"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": [
+                        "no thanks"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "pokemon_info",
+                    "slots": [
+                        {
+                            "name": "pokemon",
+                            "type": "pokemon"
+                        }
+                    ],
+                    "samples": [
+                        "describe {pokemon}",
+                        "what's {pokemon}",
+                        "what is {pokemon}",
+                        "give me info about {pokemon}",
+                        "tell me about {pokemon} "
+                    ]
+                },
+                {
+                    "name": "pokemon_trait",
+                    "slots": [
+                        {
+                            "name": "pokemon",
+                            "type": "pokemon"
+                        },
+                        {
+                            "name": "trait",
+                            "type": "trait"
+                        }
+                    ],
+                    "samples": [
+                        "{pokemon} {trait}",
+                        "what {trait} is {pokemon}",
+                        "what is {pokemon} {trait}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "pokemon",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pikachu",
+                                "synonyms": [
+                                    "pikachu's",
+                                    "raichu",
+                                    "pichu"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "charizard",
+                                "synonyms": [
+                                    "charizard's",
+                                    "charmeleon",
+                                    "charmander"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "squirtle",
+                                "synonyms": [
+                                    "squirtle's",
+                                    "blastoise",
+                                    "wartortle"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bulbasaur",
+                                "synonyms": [
+                                    "venusaur",
+                                    "ivysaur"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mewtwo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mew"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jigglypuff"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "trait",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "height"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "type",
+                                "synonyms": [
+                                    "types"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "weight"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
