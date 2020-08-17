@@ -16,16 +16,18 @@ const messages = {
     fallback: 'This you personal pokedex! What would you like to know about pokemon? You can also ask me for a pokemom\'s weight, height, or type',
     end: 'This is pokedex signing off. See ya next time pokemon trainer.',
     error: 'Sorry, I can\'t understand the command. Please say again.',
+}
+const pokemonMessages = {
     pokemonInfo: (pokemon, pokemonTypes, pokemonHeight, pokemonWeight) => `${pokemon} is a ${pokemonTypes} type pokemon with a height of ${pokemonHeight} and a weight of ${pokemonWeight}. What else would you like to know?`,
     pokemonTraitInfo: (pokemon, trait, traitValue) => `${pokemon}'s ${trait} is ${traitValue}. What else would you like to know?`,
     pokemonNotFound: (pokemon) => `hmm, I'm not sure I know about ${pokemon}, are you sure it is a pokemon?`,
-    pokemonTraitNotFound: (pokemon, trait) => `Sorry, I don't know ${pokemon}'s ${trait}. You can ask me for a pokemon\'s weight, height, or type.`
+    pokemonTraitNotFound: (pokemon, trait) => `Sorry, I don't know ${pokemon}'s ${trait}. You can ask me for a pokemon\'s weight, height, or type.`,
 }
 
 /* HELPER FUNCTIONS */
 
-async function getPokemonInfo(pokemon) {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+function getPokemonInfo(pokemon) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
         .then((res) => res.json())
         .then((data) => {
             const { weight, height, types } = data
@@ -75,10 +77,10 @@ const PokemonInfoHandler = {
 
         const { weight, height, type, error } = await getPokemonInfo(pokemon);
         if (error) {
-            speechText = messages.pokemonNotFound(pokemon);
+            speechText = pokemonMessages.pokemonNotFound(pokemon);
         }
         else {
-            speechText = messages.pokemonInfo(pokemon, type, height, weight);
+            speechText = pokemonMessages.pokemonInfo(pokemon, type, height, weight);
         }
 
         return handlerInput.responseBuilder
@@ -102,14 +104,14 @@ const PokemonTraitHandler = {
         if (trait === 'type' || trait === 'weight' || trait === 'height') {
             const pokemonInfo = await getPokemonInfo(pokemon);
             if (pokemonInfo.error) {
-                speechText = messages.pokemonNotFound(pokemon);
+                speechText = pokemonMessages.pokemonNotFound(pokemon);
             }
             else {
                 const traitValue = pokemonInfo[trait];
-                speechText = messages.pokemonTraitInfo(pokemon, trait, traitValue);
+                speechText = pokemonMessages.pokemonTraitInfo(pokemon, trait, traitValue);
             }
         } else {
-            speechText = messages.pokemonTraitNotFound(pokemon, trait);
+            speechText = pokemonMessages.pokemonTraitNotFound(pokemon, trait);
         }
 
         return handlerInput.responseBuilder
